@@ -23,8 +23,8 @@ export class Graddes {
             var grad0 = grad(this.X,this.y, theta0, theta1, total);
             var grad1 = grad(this.X,this.y, theta0, theta1, total);
 
-            theta0 = subtract(theta0, multiply(grad0, lrate));
-            theta1 = subtract(theta1, multiplt(grad1, lrate));
+            let theta0_new = subtract(theta0, multiply(grad0, lrate));
+            let theta1_new = subtract(theta1, multiplt(grad1, lrate));
 
             let cost = Cost(total, theta0);
 
