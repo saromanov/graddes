@@ -28,6 +28,9 @@ export class Graddes {
 
             let cost = Cost(total, theta0);
 
+            grad0 = subtract(grad0, multiply(theta0_new, lrate);
+            grad1 = subtract(grad1, multiply(theta1_new, lrate);
+
             i += 1;
 
         }
