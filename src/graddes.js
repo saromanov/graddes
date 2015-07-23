@@ -1,6 +1,6 @@
 import underscore, {each, range, zip, reduce} from 'underscore';
 import random from 'random-array';
-import mathjs, {multiply, add, divide, subtract} from 'mathjs'
+import mathjs, {multiply, add, divide, subtract} from 'mathjs';
 
 export class Graddes {
     constructor(X, y) {
@@ -26,12 +26,12 @@ export class Graddes {
             let theta0_new = subtract(theta0, multiply(grad0, lrate));
             let theta1_new = subtract(theta1, multiplt(grad1, lrate));
 
-            let cost = Cost(total, theta0);
+            //let cost = Cost(total, theta0);
 
             grad0 = subtract(grad0, multiply(theta0_new, lrate));
             grad1 = subtract(grad1, multiply(theta1_new, lrate));
 
-            i += 1;
+            it += 1;
 
         }
         return [theta0, theta1];
