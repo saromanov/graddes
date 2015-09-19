@@ -1,6 +1,6 @@
 import underscore, {each, range, zip, reduce} from 'underscore';
 import random from 'random-array';
-import mathjs, {multiply, add, divide, subtract, dot} from 'mathjs';
+import mathjs, {multiply, add, divide, subtract, dot, sum} from 'mathjs';
 
 export class Graddes {
     constructor(X, y) {
@@ -8,10 +8,10 @@ export class Graddes {
         this.y = y;
     }
 
-    fit(iters=1000, eps=0.0001, lrate=0.01, untilconverge=false){
+    fit(iters=10, eps=0.0001, lrate=0.01, untilconverge=false){
         let total = 2;
-        let theta0 = random(-0.001, 0.001).oned(total);
-        let theta1 = random(-0.001, 0.001).oned(total);
+        let theta0 = random(-0.001, 0.001).oned(5);
+        let theta1 = random(-0.001, 0.001).oned(5);
         
         let converge = false;
         let it = 0;
@@ -31,8 +31,9 @@ export class Graddes {
             grad0 = subtract(grad0, multiply(theta0_new, lrate));
             grad1 = subtract(grad1, multiply(theta1_new, lrate));*/
 
-            let value = muliply(this.X, theta0);
+            let value = multiply(this.X, theta0);
             let loss = subtract(value, this.y);
+            let J = sum(multiply(loss, loss));
 
 
             it += 1;
