@@ -8,10 +8,9 @@ export class Graddes {
         this.y = y;
     }
 
-    fit(iters=10, eps=0.0001, lrate=0.01, untilconverge=false){
+    fit(iters=10, eps=0.0001, lrate=0.01, untilconverge=true){
         let total = 2;
         let theta0 = random(-0.001, 0.001).oned(5);
-        let theta1 = random(-0.001, 0.001).oned(5);
         
         let converge = false;
         let it = 0;
@@ -36,11 +35,13 @@ export class Graddes {
             let loss = subtract(value, this.y);
             let J = sum(multiply(loss, loss));
             let grad = divide(multiply(this.X, loss), m);
+            theta0 = subtract(theta0, multiply(grad, lrate));
+
 
             it += 1;
 
         }
-        return [theta0, theta1];
+        return theta0;
     }
 }
 
