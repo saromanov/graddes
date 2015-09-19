@@ -8,7 +8,7 @@ export class Graddes {
         this.y = y;
     }
 
-    fit(iters=1000, eps=0.0001, lrate=0.01){
+    fit(iters=1000, eps=0.0001, lrate=0.01, untilconverge=false){
         let total = 2;
         let theta0 = random(-0.001, 0.001).oned(total);
         let theta1 = random(-0.001, 0.001).oned(total);
@@ -16,7 +16,7 @@ export class Graddes {
         let converge = false;
         let it = 0;
         while(!converge) {
-            if(it === iters) {
+            if(untilconverge && it === iters) {
                 break;
             }
             /*var grad0 = grad(this.X,this.y, theta0, theta1, total);
