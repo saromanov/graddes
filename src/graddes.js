@@ -15,6 +15,7 @@ export class Graddes {
         
         let converge = false;
         let it = 0;
+        let m = this.X.length;
         while(!converge) {
             if(untilconverge && it === iters) {
                 break;
@@ -34,7 +35,7 @@ export class Graddes {
             let value = multiply(this.X, theta0);
             let loss = subtract(value, this.y);
             let J = sum(multiply(loss, loss));
-
+            let grad = divide(multiply(this.X, loss), m);
 
             it += 1;
 
