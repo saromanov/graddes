@@ -9,7 +9,7 @@ export class Graddes {
     }
 
     fit(iters=100, eps=0.0001, lrate=0.01, untilconverge=true){
-        let theta0 = random(-0.001, 0.001).oned(5);
+        let theta0 = random(-0.001, 0.001).oned(this.y.length);
         
         let converge = false;
         let it = 0;
