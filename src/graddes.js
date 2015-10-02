@@ -8,8 +8,7 @@ export class Graddes {
         this.y = y;
     }
 
-    fit(iters=10, eps=0.0001, lrate=0.01, untilconverge=true){
-        let total = 2;
+    fit(iters=100, eps=0.0001, lrate=0.01, untilconverge=true){
         let theta0 = random(-0.001, 0.001).oned(5);
         
         let converge = false;
