@@ -6,6 +6,7 @@ export class Graddes {
     constructor(X, y) {
         this.X = X;
         this.y = y;
+        validateData(X, y);
     }
 
     fit(iters=100, eps=0.0001, lrate=0.01, untilconverge=true){
@@ -52,5 +53,16 @@ let grad = function(X,y, theta0, theta1, m){
     });
 
     return divide(result, m);
+}
+
+
+let validateData = function(X, y) {
+    if(X.length == 0 || y.length == 0) {
+        throw "Invalid data";
+    }
+
+    if(X.length != y.length) {
+        throw "Data and labels must be in the same length";
+    }
 }
 
